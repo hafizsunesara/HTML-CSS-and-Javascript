@@ -1,0 +1,57 @@
+<HTML>
+<?php
+require_once('database.php');
+require_once('banner.php');?>
+<head>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<title></title>
+
+	<link rel="stylesheet" type="text/css" href="design.css" />
+    <link href='http://fonts.googleapis.com/css?family=Cambo' rel='stylesheet' type='text/css'>
+	
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<script src="script.js"></script>
+	<script>
+</head>
+<body onload="setupBlocks();">
+<h3>Search Results</h3>
+<div id="frame">
+
+<?php 
+$tag=$_GET['search'];
+if(isset($_GET['table'])==='pin')
+{
+$search="select * from pin join photo using(photoid) where tag like '%$tag%'";
+$result=mysql_query($search,$con);
+if (false == $result) {
+    echo mysql_error();
+}
+while($row=mysql_fetch_array($result))
+{
+	echo '<div class="block">'; 
+		echo $row['title'].'<br><div class="show-image"><a href=likepin.php?photoid='.$row['photoid'].'&action=like><img src="images/likebutton.jpg" width="25" height="25" class="the-buttons"></a>&nbsp<img src="images/' . $row['path'] . '" width="200" height="200"></div>'.$row['description'].'<br>'; 
+		echo '</div>';
+}
+}
+if(isset($_GET['board']))
+{
+$search="select * from pin join photo using(photoid) where tag like '%$tag%'";
+$result=mysql_query($search,$con);
+if (false == $result) {
+    echo mysql_error();
+}
+while($row=mysql_fetch_array($result))
+{
+	echo '<div class="block">'; 
+		echo $row['title'].'<br><div class="show-image"><a href=likepin.php?photoid='.$row['photoid'].'&action=like><img src="images/likebutton.jpg" width="25" height="25" class="the-buttons"></a>&nbsp<img src="images/' . $row['path'] . '" width="200" height="200"></div>'.$row['description'].'<br>'; 
+		echo '</div>';
+}
+}
+
+?>
+</div>
+<div id="dialog"></div>
+</body>
+</HTML>

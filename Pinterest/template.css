@@ -1,0 +1,22 @@
+body{
+top:100px;
+width:1050px;
+background:#eee;
+background: -webkit-gradient(linear, bottom, left 175px, from(#CCCCCC), to(#EEEEEE));
+background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
+margin:50px auto;
+border:2px solid #999;
+border-radius:5px
+}
+#header{
+width:1050px;
+background:#eee;
+text-align:center;
+margin:10px auto;
+}
+#header img{
+padding-top:20px;
+padding-bottom:20px;
+font-size:20px;
+color:#333;
+}

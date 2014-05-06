@@ -1,0 +1,11 @@
+	<script>
+	function comment(source,photoid)
+{
+alert("images/" .source.);
+var content= '<form id="avatar_form" enctype="multipart/form-data" method="post" action="image_pin.php"><h4>Comment</h4><img src="images/' .source. '"></br><input type="hidden" name="photoid" value='.photoid.'"></br><input type="textarea" id="comment" name="comment" placeholder="Comment Here..."><p><input type="submit" value="Pin it" class="upload"></p></form>';
+var box_content='<div id="overlay"><div id="box_frame"><div id="box"><div id="cancelbutton"><a href="javascript:close()" ><img src="images/cancel_button.png" width="20" height="20" ></a></div>'+content+'</div></div></div>';
+document.getElementById("comment").innerHTML=box_content;
+}
+	</script>
+	
+javascript:comment(\''. addslashes(htmlspecialchars($row[3])).'\',\''.addslashes(htmlspecialchars($row[0])).'\')
